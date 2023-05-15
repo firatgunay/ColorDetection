@@ -1,4 +1,4 @@
-# Python code for Multiple Color Detection
+# Multiple Color Detection
   
   
 import numpy as np
@@ -11,11 +11,7 @@ while(1):
       
     
     _, imageFrame = webcam.read()
-  
-    # Convert the imageFrame in 
-    # BGR(RGB color space) to 
-    # HSV(hue-saturation-value)
-    # color space
+ 
     hsvFrame = cv2.cvtColor(imageFrame, cv2.COLOR_BGR2HSV)
   
     red_lower = np.array([136, 87, 111], np.uint8)
@@ -65,7 +61,6 @@ while(1):
                         cv2.FONT_HERSHEY_SIMPLEX, 1.0,
                         (0, 0, 255))    
   
-    # Creating contour to track green color
     contours, hierarchy = cv2.findContours(green_mask,
                                            cv2.RETR_TREE,
                                            cv2.CHAIN_APPROX_SIMPLE)
@@ -82,7 +77,6 @@ while(1):
                         cv2.FONT_HERSHEY_SIMPLEX, 
                         1.0, (0, 255, 0))
   
-    # Creating contour to track blue color
     contours, hierarchy = cv2.findContours(blue_mask,
                                            cv2.RETR_TREE,
                                            cv2.CHAIN_APPROX_SIMPLE)
